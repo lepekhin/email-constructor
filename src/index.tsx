@@ -48,8 +48,8 @@ function App() {
 
 				<div className="constructor__controls">
 					<a className="constructor__control" href={renderedHtml} download={(new Date().toISOString()) + '.html'}>📩 Экспорт в .html</a>
-					<a className="constructor__control" href={URL.createObjectURL(exportJson)} download={(new Date().toISOString()) + '.json'}>📥 Экспорт в .json</a>
-					<label className="constructor__control">📤 Импорт .json <input className="visually-hidden" type="file" accept="application/json" onClick={(event) => {
+					<a className="constructor__control" href={URL.createObjectURL(exportJson)} download={(new Date().toISOString()) + '.json'}>📥 Сохранить шаблон</a>
+					<label className="constructor__control">📤 Загрузить шаблон<input className="visually-hidden" type="file" accept="application/json" onClick={(event) => {
 						if (!confirm('Это сотрет текущее письмо. Продолжить?')) {
 							event.preventDefault();
 						}
@@ -81,7 +81,7 @@ function App() {
 							setPreHeader('');
 						}
 					}}>🗑 Удалить всё</button><br/>
-					<a className="constructor__logo" href="https://lepekhin.studio" target="_blank" aria-label="Студия Евгения Лепёхина"><Logo/></a>
+					<a className="constructor__logo" href="https://lepekhin.studio/?utm_referrer=email.lepekhin.studio" target="_blank" aria-label="Студия Евгения Лепёхина"><Logo/></a>
 				</div>
 			</aside>
 			<iframe className="constructor__preview" src={renderedHtml} />

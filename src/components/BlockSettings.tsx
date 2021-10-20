@@ -36,7 +36,7 @@ export default function BlockSettings({block, index, setBlocks}: BlockSettingsPr
                 let labelClass = "block__setting";
                 if (prop.tag === 'textarea') {labelClass += " block__setting--fluid"}
                 return <label className={labelClass} key={propIndex}>{prop.tag !== 'textarea' && prop.label} {{
-                        textarea: <textarea rows={1} className="block__input" name={prop.name} value={block[prop.name]} aria-label={prop.label} placeholder={prop.default} onChange={inputChangeHandler} />,
+                        textarea: <textarea rows={2} className="block__input" name={prop.name} value={block[prop.name]} aria-label={prop.label} placeholder={prop.default} onChange={inputChangeHandler} />,
                         input: <input className="block__input" type={prop.inputType ?? 'text'} name={prop.name} value={block[prop.name]} placeholder={prop.default} onChange={inputChangeHandler}
                         {...elementProps} />,
                         select: <select className="block__input" name={prop.name} value={block[prop.name]} onChange={inputChangeHandler}>{prop.options?.map(({value, label}, optionIndex) => {
