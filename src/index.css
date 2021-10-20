@@ -92,6 +92,7 @@ body {
 	font-size: 150%;
 	font-family: 'TT Common', system-ui, sans-serif;
 	font-weight: 500;
+	line-height: 1.2;
 }
 .constructor__blocks {
 	padding: 0;
