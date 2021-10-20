@@ -5,7 +5,7 @@
   "main": "index.html",
   "scripts": {
     "start": "parcel src/index.html",
-    "build": "parcel build src/index.html",
+    "build": "parcel build src/index.html --public-url ./",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
@@ -22,7 +22,7 @@
   "bugs": {
     "url": "https://github.com/lepekhin/email-constructor/issues"
   },
-  "homepage": "http://email.lepekhin.studio",
+  "homepage": "https://email.lepekhin.studio",
   "dependencies": {
     "@svgr/parcel-plugin-svgr": "^5.5.0",
     "@types/react": "^17.0.30",
