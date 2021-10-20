@@ -6,7 +6,7 @@
   "scripts": {
     "start": "parcel src/index.html",
     "build": "parcel build src/index.html --public-url ./",
-    "add-domain": "mkdir dist && echo \"email.lepekhin.studio\" > dist/CNAME",
+    "add-domain": "mkdir -p dist && echo \"email.lepekhin.studio\" > dist/CNAME",
     "predeploy": "npm run add-domain && npm run build",
     "deploy": "gh-pages -d dist"
   },
