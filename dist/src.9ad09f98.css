@@ -92,6 +92,7 @@ body {
 	font-size: 150%;
 	font-family: 'TT Common', system-ui, sans-serif;
 	font-weight: 500;
+	line-height: 1.2;
 }
 .constructor__blocks {
 	padding: 0;
@@ -113,7 +114,6 @@ body {
 	border: 0;
 	border-radius: 0;
 	color: LinkText;
-	border-radius: 0;
 	cursor: pointer;
 }
 
@@ -215,6 +215,7 @@ select.block__input {
 .block__input[type="color"] {
 	border: 1px solid;
 	padding: 0;
+	vertical-align: bottom;
 }
 .block__input[type="color"]::-webkit-color-swatch-wrapper {
 	padding: 0;
@@ -246,5 +247,6 @@ select.block__input {
 	display: inline-block;
 	margin-top: 1.5em;
 }
+
 
 /*# sourceMappingURL=/src.9ad09f98.css.map */
