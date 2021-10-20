@@ -29656,7 +29656,7 @@ exports.blockTypes = {
       tag: 'input',
       inputType: 'url',
       label: 'Ссылка на картинку',
-      default: 'https://via.placeholder.com/600x200.png?text=email.lepekhin.studio'
+      default: 'https://via.placeholder.com/568x180.png?text=email.lepekhin.studio'
     }, {
       name: 'text',
       tag: 'input',
@@ -29673,13 +29673,13 @@ exports.blockTypes = {
       tag: 'input',
       inputType: 'number',
       label: 'Ширина',
-      default: '600'
+      default: '568'
     }, {
       name: 'height',
       tag: 'input',
       inputType: 'number',
       label: 'Высота',
-      default: '200'
+      default: '180'
     }].concat(defaultTextProps, defaultColorProps, defaultPaddingProps)
   },
   text: {
@@ -29688,7 +29688,7 @@ exports.blockTypes = {
       name: 'text',
       tag: 'textarea',
       label: 'Текст',
-      default: 'Ключ к хоро­шей про­мо­рас­сылке — именно пони­ма­ние чита­теля: что у него болит и о чём ему сле­дует рассказывать.'
+      default: '«Ключ к хоро­шей про­мо­рас­сылке — пони­ма­ние чита­теля: что у него болит и о чём ему сле­дует рассказывать».'
     }].concat(defaultTextProps, defaultColorProps, [{
       name: 'tag',
       tag: 'select',
@@ -29882,7 +29882,7 @@ function BlockSettings(_ref) {
       key: propIndex
     }, prop.tag !== 'textarea' && prop.label, " ", {
       textarea: react_1.default.createElement("textarea", {
-        rows: 1,
+        rows: 2,
         className: "block__input",
         name: prop.name,
         value: block[prop.name],
@@ -30217,9 +30217,9 @@ function App() {
     className: "constructor__control",
     href: URL.createObjectURL(exportJson),
     download: new Date().toISOString() + '.json'
-  }, "\uD83D\uDCE5 \u042D\u043A\u0441\u043F\u043E\u0440\u0442 \u0432 .json"), react_1.default.createElement("label", {
+  }, "\uD83D\uDCE5 \u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C \u0448\u0430\u0431\u043B\u043E\u043D"), react_1.default.createElement("label", {
     className: "constructor__control"
-  }, "\uD83D\uDCE4 \u0418\u043C\u043F\u043E\u0440\u0442 .json\xA0", react_1.default.createElement("input", {
+  }, "\uD83D\uDCE4 \u0417\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u044C \u0448\u0430\u0431\u043B\u043E\u043D", react_1.default.createElement("input", {
     className: "visually-hidden",
     type: "file",
     accept: "application/json",
@@ -30269,7 +30269,7 @@ function App() {
     }
   }, "\uD83D\uDDD1 \u0423\u0434\u0430\u043B\u0438\u0442\u044C \u0432\u0441\u0451"), react_1.default.createElement("br", null), react_1.default.createElement("a", {
     className: "constructor__logo",
-    href: "https://lepekhin.studio",
+    href: "https://lepekhin.studio/?utm_referrer=email.lepekhin.studio",
     target: "_blank",
     "aria-label": "\u0421\u0442\u0443\u0434\u0438\u044F \u0415\u0432\u0433\u0435\u043D\u0438\u044F \u041B\u0435\u043F\u0451\u0445\u0438\u043D\u0430"
   }, react_1.default.createElement(logo_svg_1.default, null)))), react_1.default.createElement("iframe", {
@@ -30307,7 +30307,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57096" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57575" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
