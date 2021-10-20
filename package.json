@@ -1,0 +1,38 @@
+{
+  "name": "email-constructor",
+  "version": "0.0.1",
+  "description": "Open-source HTML E-mail constructor",
+  "main": "index.html",
+  "scripts": {
+    "start": "parcel src/index.html",
+    "build": "parcel build src/index.html",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lepekhin/email-constructor.git"
+  },
+  "keywords": [
+    "html",
+    "email"
+  ],
+  "author": "https://lepekhin.studio",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lepekhin/email-constructor/issues"
+  },
+  "homepage": "https://lepekhin.github.io/email-constructor",
+  "dependencies": {
+    "@svgr/parcel-plugin-svgr": "^5.5.0",
+    "@types/react": "^17.0.30",
+    "@types/react-dom": "^17.0.9",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "gh-pages": "^3.2.3",
+    "parcel-bundler": "^1.12.5",
+    "typescript": "^4.4.4"
+  }
+}
