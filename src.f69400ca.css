@@ -1,0 +1,54 @@
+body {
+	margin: 0;
+	font-family: system-ui, sans-serif;
+}
+
+.constructor {
+	display: flex;
+	flex-wrap: wrap;
+	min-height: 100vh;
+}
+.constructor__aside {
+	padding: 1em;
+}
+.constructor__title {
+	margin: 0;
+}
+.constructor__blocks {
+	padding: 0;
+	list-style: none;
+	margin: 0;
+}
+.constructor__preview {
+	flex-basis: 600px;
+	background-color: #eee;
+	flex-grow: 2;
+	border: 0;
+}
+.block {
+	display: flex;
+	flex-wrap: wrap;
+	margin-bottom: .25em;
+	border-radius: .25em;
+	padding-left: .5em;
+	padding-bottom: .25em;
+}
+.block__label {
+	padding-top: .25em;
+	margin: 0;
+	flex-grow: 1;
+	font-weight: bold;
+}
+.block__control {
+	padding: .25em;
+	margin: 0;
+	border: 0;
+	font: inherit;
+	background: none;
+	cursor: pointer;
+}
+.block__toggle[aria-expanded="false"] + .block__settings {
+	display: none;
+}
+
+/*# sourceMappingURL=/src.f69400ca.css.map */
