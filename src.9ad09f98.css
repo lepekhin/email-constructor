@@ -1,14 +1,14 @@
 @font-face {
     font-family: "Apoc";
-    src: url("/Apoc-Regular-Web.15f766c6.woff2") format("woff2"),
-         url("/Apoc-Regular-Web.8d9a8a96.woff") format("woff");
+    src: url("/Apoc-Regular-Web.20373947.woff2") format("woff2"),
+         url("/Apoc-Regular-Web.c7c083bf.woff") format("woff");
     font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
 @font-face {
     font-family: "TT Common";
-    src: url("/TypeType - TT Commons Pro Expanded DemiBold.5a330ce3.ttf") format("ttf");
+    src: url("/TypeType - TT Commons Pro Expanded DemiBold.369ea934.ttf") format("ttf");
     font-weight: 500;
     font-style: normal;
     font-display: swap;
@@ -138,7 +138,6 @@ body {
 	padding: .5em;
 	margin: .25em;
 	flex-grow: 1;
-	font-weight: bold;
 	border-radius: .2em;
 }
 .block__control {

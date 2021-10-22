@@ -29566,173 +29566,7 @@ if ("development" === 'production') {
 } else {
   module.exports = require('./cjs/react-dom.development.js');
 }
-},{"./cjs/react-dom.development.js":"../node_modules/react-dom/cjs/react-dom.development.js"}],"utils/blockTypes.ts":[function(require,module,exports) {
-"use strict";
-
-function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.initialState = exports.generateDefaultBlock = exports.blockTypes = void 0;
-var defaultPaddingProps = [{
-  name: 'paddingTop',
-  tag: 'input',
-  inputType: 'number',
-  label: 'Отступ сверху',
-  default: '10'
-}, {
-  name: 'paddingRight',
-  tag: 'input',
-  inputType: 'number',
-  label: 'Отступ справа',
-  default: '16'
-}, {
-  name: 'paddingBottom',
-  tag: 'input',
-  inputType: 'number',
-  label: 'Отступ снизу',
-  default: '10'
-}, {
-  name: 'paddingLeft',
-  tag: 'input',
-  inputType: 'number',
-  label: 'Отступ слева',
-  default: '16'
-}];
-var defaultTextProps = [{
-  name: 'fontSize',
-  tag: 'input',
-  inputType: 'number',
-  label: 'Размер шрифта',
-  default: '16'
-}, {
-  name: 'lineHeight',
-  tag: 'input',
-  inputType: 'number',
-  label: 'Межстрочный интервал',
-  default: '20'
-}, {
-  name: 'textAlign',
-  tag: 'select',
-  options: [{
-    value: 'left',
-    label: 'по левому краю'
-  }, {
-    value: 'center',
-    label: 'по центру'
-  }, {
-    value: 'right',
-    label: 'по правому краю'
-  }, {
-    value: 'justify',
-    label: 'по ширине'
-  }],
-  label: 'Выравнивание',
-  default: 'left'
-}];
-var defaultColorProps = [{
-  name: 'color',
-  tag: 'input',
-  inputType: 'color',
-  label: 'Цвет текста',
-  default: '#222222'
-}, {
-  name: 'backgroundColor',
-  tag: 'input',
-  inputType: 'color',
-  label: 'Цвет фона',
-  default: '#F2F2F2'
-}];
-exports.blockTypes = {
-  img: {
-    label: 'Изображение',
-    props: [{
-      name: 'src',
-      tag: 'input',
-      inputType: 'url',
-      label: 'Ссылка на картинку',
-      default: 'https://via.placeholder.com/568x180.png?text=email.lepekhin.studio'
-    }, {
-      name: 'text',
-      tag: 'input',
-      label: 'Альтернативный текст',
-      default: 'Изображение'
-    }, {
-      name: 'href',
-      tag: 'input',
-      inputType: 'url',
-      label: 'Ссылка по нажатию',
-      default: 'https://bureau.ru/books/howtowritethat/demo/8'
-    }, {
-      name: 'width',
-      tag: 'input',
-      inputType: 'number',
-      label: 'Ширина',
-      default: '568'
-    }, {
-      name: 'height',
-      tag: 'input',
-      inputType: 'number',
-      label: 'Высота',
-      default: '180'
-    }].concat(defaultTextProps, defaultColorProps, defaultPaddingProps)
-  },
-  text: {
-    label: 'Текст',
-    props: [{
-      name: 'text',
-      tag: 'textarea',
-      label: 'Текст',
-      default: '«Ключ к хоро­шей про­мо­рас­сылке — пони­ма­ние чита­теля: что у него болит и о чём ему сле­дует рассказывать».'
-    }].concat(defaultTextProps, defaultColorProps, [{
-      name: 'tag',
-      tag: 'select',
-      options: [{
-        value: 'p',
-        label: 'Параграф <p>'
-      }, {
-        value: 'h1',
-        label: 'Заголовок письма <h1>'
-      }, {
-        value: 'h2',
-        label: 'Подзаголовок <h2>'
-      }],
-      label: 'Тип',
-      default: 'p'
-    }], defaultPaddingProps)
-  }
-};
-
-function generateDefaultBlock(blockType) {
-  var block = {
-    type: blockType
-  };
-
-  var _iterator = _createForOfIteratorHelper(exports.blockTypes[blockType].props),
-      _step;
-
-  try {
-    for (_iterator.s(); !(_step = _iterator.n()).done;) {
-      var prop = _step.value;
-      block[prop.name] = prop.default;
-    }
-  } catch (err) {
-    _iterator.e(err);
-  } finally {
-    _iterator.f();
-  }
-
-  return block;
-}
-
-exports.generateDefaultBlock = generateDefaultBlock;
-exports.initialState = Object.keys(exports.blockTypes).map(generateDefaultBlock);
-},{}],"components/BlockControls.tsx":[function(require,module,exports) {
+},{"./cjs/react-dom.development.js":"../node_modules/react-dom/cjs/react-dom.development.js"}],"components/BlockControls.tsx":[function(require,module,exports) {
 "use strict";
 
 var __importDefault = this && this.__importDefault || function (mod) {
@@ -29749,17 +29583,17 @@ var react_1 = __importDefault(require("react"));
 
 function BlockControls(_ref) {
   var index = _ref.index,
-      setBlocks = _ref.setBlocks;
+      setMail = _ref.setMail;
 
   var duplicateClickHandler = function duplicateClickHandler() {
-    setBlocks(function (prevState) {
+    setMail(function (prevState) {
       return prevState.concat(Object.assign({}, prevState[index]));
     });
   };
 
   var deleteClickHandler = function deleteClickHandler() {
     if (confirm('Удалить этот блок?')) {
-      setBlocks(function (prevState) {
+      setMail(function (prevState) {
         return prevState.filter(function (block, blockIndex) {
           return blockIndex !== index;
         });
@@ -29768,7 +29602,7 @@ function BlockControls(_ref) {
   };
 
   var upClickHandler = function upClickHandler() {
-    setBlocks(function (prevState) {
+    setMail(function (prevState) {
       return prevState.map(function (newBlock, newIndex) {
         if (newIndex === index - 1) {
           newBlock = prevState[index];
@@ -29782,7 +29616,7 @@ function BlockControls(_ref) {
   };
 
   var downClickHandler = function downClickHandler() {
-    setBlocks(function (prevState) {
+    setMail(function (prevState) {
       return prevState.map(function (newBlock, newIndex) {
         if (newIndex === index && index !== prevState.length - 1) {
           newBlock = prevState[index + 1];
@@ -29823,7 +29657,292 @@ function BlockControls(_ref) {
 }
 
 exports.default = BlockControls;
-},{"react":"../node_modules/react/index.js"}],"components/BlockSettings.tsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js"}],"blocks/props/fontProps.ts":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var fontProps = [{
+  name: 'fontSize',
+  tag: 'input',
+  inputType: 'number',
+  label: 'Размер шрифта',
+  default: '16'
+}, {
+  name: 'lineHeight',
+  tag: 'input',
+  inputType: 'number',
+  label: 'Межстрочный интервал',
+  default: '20'
+}, {
+  name: 'textAlign',
+  tag: 'select',
+  options: [{
+    value: 'left',
+    label: 'по левому краю'
+  }, {
+    value: 'center',
+    label: 'по центру'
+  }, {
+    value: 'right',
+    label: 'по правому краю'
+  }, {
+    value: 'justify',
+    label: 'по ширине'
+  }],
+  label: 'Выравнивание',
+  default: 'left'
+}];
+exports.default = fontProps;
+},{}],"blocks/props/colorProps.ts":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var colorProps = [{
+  name: 'color',
+  tag: 'input',
+  inputType: 'color',
+  label: 'Цвет текста',
+  default: '#222222'
+}, {
+  name: 'backgroundColor',
+  tag: 'input',
+  inputType: 'color',
+  label: 'Фоновый цвет блока',
+  default: '#F2F2F2'
+}];
+exports.default = colorProps;
+},{}],"blocks/props/paddingProps.ts":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var paddingProps = [{
+  name: 'paddingTop',
+  tag: 'input',
+  inputType: 'number',
+  label: 'Отступ сверху',
+  default: '10'
+}, {
+  name: 'paddingRight',
+  tag: 'input',
+  inputType: 'number',
+  label: 'Отступ справа',
+  default: '16'
+}, {
+  name: 'paddingBottom',
+  tag: 'input',
+  inputType: 'number',
+  label: 'Отступ снизу',
+  default: '10'
+}, {
+  name: 'paddingLeft',
+  tag: 'input',
+  inputType: 'number',
+  label: 'Отступ слева',
+  default: '16'
+}];
+exports.default = paddingProps;
+},{}],"blocks/imgBlock.ts":[function(require,module,exports) {
+"use strict";
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var fontProps_1 = __importDefault(require("./props/fontProps"));
+
+var colorProps_1 = __importDefault(require("./props/colorProps"));
+
+var paddingProps_1 = __importDefault(require("./props/paddingProps"));
+
+var imgBlock = {
+  img: {
+    label: 'Изображение',
+    props: [{
+      name: 'src',
+      tag: 'input',
+      inputType: 'url',
+      label: 'Ссылка на картинку',
+      default: 'https://via.placeholder.com/568x180.png?text=email.lepekhin.studio'
+    }, {
+      name: 'text',
+      tag: 'input',
+      label: 'Альтернативный текст',
+      default: 'Изображение'
+    }, {
+      name: 'href',
+      tag: 'input',
+      inputType: 'url',
+      label: 'Ссылка по нажатию',
+      default: 'https://lepekhin.studio/'
+    }, {
+      name: 'width',
+      tag: 'input',
+      inputType: 'number',
+      label: 'Ширина',
+      default: '568'
+    }, {
+      name: 'height',
+      tag: 'input',
+      inputType: 'number',
+      label: 'Высота',
+      default: '180'
+    }].concat(_toConsumableArray(fontProps_1.default), _toConsumableArray(colorProps_1.default), _toConsumableArray(paddingProps_1.default))
+  }
+};
+exports.default = imgBlock;
+},{"./props/fontProps":"blocks/props/fontProps.ts","./props/colorProps":"blocks/props/colorProps.ts","./props/paddingProps":"blocks/props/paddingProps.ts"}],"blocks/textBlock.ts":[function(require,module,exports) {
+"use strict";
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var fontProps_1 = __importDefault(require("./props/fontProps"));
+
+var colorProps_1 = __importDefault(require("./props/colorProps"));
+
+var paddingProps_1 = __importDefault(require("./props/paddingProps"));
+
+var textBlock = {
+  text: {
+    label: 'Текст',
+    props: [{
+      name: 'text',
+      tag: 'textarea',
+      label: 'Текст',
+      default: '«Ключ к хорошей проморассылке — понимание читателя: что у него болит и о чём ему следует рассказывать».'
+    }].concat(_toConsumableArray(fontProps_1.default), _toConsumableArray(colorProps_1.default), [{
+      name: 'tag',
+      tag: 'select',
+      options: [{
+        value: 'p',
+        label: 'Параграф <p>'
+      }, {
+        value: 'h1',
+        label: 'Заголовок письма <h1>'
+      }, {
+        value: 'h2',
+        label: 'Подзаголовок <h2>'
+      }],
+      label: 'Тип',
+      default: 'p'
+    }], _toConsumableArray(paddingProps_1.default))
+  }
+};
+exports.default = textBlock;
+},{"./props/fontProps":"blocks/props/fontProps.ts","./props/colorProps":"blocks/props/colorProps.ts","./props/paddingProps":"blocks/props/paddingProps.ts"}],"blocks/btnBlock.ts":[function(require,module,exports) {
+"use strict";
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var fontProps_1 = __importDefault(require("./props/fontProps"));
+
+var colorProps_1 = __importDefault(require("./props/colorProps"));
+
+var paddingProps_1 = __importDefault(require("./props/paddingProps"));
+
+var btnBlock = {
+  btn: {
+    label: 'Кнопка',
+    props: [{
+      name: 'text',
+      tag: 'input',
+      label: 'Текст',
+      default: 'Читать далее'
+    }, {
+      name: 'href',
+      tag: 'input',
+      inputType: 'url',
+      label: 'Ссылка',
+      default: 'https://bureau.ru/books/howtowritethat/demo/8'
+    }].concat(_toConsumableArray(fontProps_1.default), _toConsumableArray(colorProps_1.default), _toConsumableArray(paddingProps_1.default))
+  }
+};
+exports.default = btnBlock;
+},{"./props/fontProps":"blocks/props/fontProps.ts","./props/colorProps":"blocks/props/colorProps.ts","./props/paddingProps":"blocks/props/paddingProps.ts"}],"blocks/index.ts":[function(require,module,exports) {
+"use strict";
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var imgBlock_1 = __importDefault(require("./imgBlock"));
+
+var textBlock_1 = __importDefault(require("./textBlock"));
+
+var btnBlock_1 = __importDefault(require("./btnBlock"));
+
+var blocks = Object.assign(Object.assign(Object.assign({}, imgBlock_1.default), textBlock_1.default), btnBlock_1.default);
+exports.default = blocks;
+},{"./imgBlock":"blocks/imgBlock.ts","./textBlock":"blocks/textBlock.ts","./btnBlock":"blocks/btnBlock.ts"}],"components/BlockSettings.tsx":[function(require,module,exports) {
 "use strict";
 
 var __importDefault = this && this.__importDefault || function (mod) {
@@ -29838,17 +29957,17 @@ Object.defineProperty(exports, "__esModule", {
 
 var react_1 = __importDefault(require("react"));
 
-var blockTypes_1 = require("../utils/blockTypes");
+var blocks_1 = __importDefault(require("../blocks"));
 
 function BlockSettings(_ref) {
   var block = _ref.block,
       index = _ref.index,
-      setBlocks = _ref.setBlocks;
+      setMail = _ref.setMail;
 
   var inputChangeHandler = function inputChangeHandler(event) {
     var input = event.target;
     var inputName = input.name;
-    setBlocks(function (prevState) {
+    setMail(function (prevState) {
       return prevState.map(function (newBlock, newIndex) {
         if (newIndex === index) {
           newBlock[inputName] = input.value;
@@ -29861,7 +29980,7 @@ function BlockSettings(_ref) {
 
   return react_1.default.createElement("form", {
     className: "block__settings"
-  }, blockTypes_1.blockTypes[block.type].props.map(function (prop, propIndex) {
+  }, blocks_1.default[block.type].props.map(function (prop, propIndex) {
     var _a, _b;
 
     var elementProps = {};
@@ -29916,7 +30035,7 @@ function BlockSettings(_ref) {
 }
 
 exports.default = BlockSettings;
-},{"react":"../node_modules/react/index.js","../utils/blockTypes":"utils/blockTypes.ts"}],"components/BlocksList.tsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","../blocks":"blocks/index.ts"}],"components/BlocksList.tsx":[function(require,module,exports) {
 "use strict";
 
 var __importDefault = this && this.__importDefault || function (mod) {
@@ -29931,19 +30050,19 @@ Object.defineProperty(exports, "__esModule", {
 
 var react_1 = __importDefault(require("react"));
 
-var blockTypes_1 = require("../utils/blockTypes");
-
 var BlockControls_1 = __importDefault(require("./BlockControls"));
 
 var BlockSettings_1 = __importDefault(require("./BlockSettings"));
 
+var blocks_1 = __importDefault(require("../blocks"));
+
 function BlocksList(_ref) {
-  var blocks = _ref.blocks,
-      setBlocks = _ref.setBlocks;
-  console.log(blocks);
+  var mail = _ref.mail,
+      setMail = _ref.setMail;
+  console.log(mail);
   return react_1.default.createElement("ol", {
     className: "constructor__blocks"
-  }, blocks.map(function (block, index) {
+  }, mail.map(function (block, index) {
     var _a, _b;
 
     return react_1.default.createElement("li", {
@@ -29955,10 +30074,10 @@ function BlocksList(_ref) {
         backgroundColor: block.backgroundColor,
         color: block.color
       }
-    }, (_a = blockTypes_1.blockTypes[block.type].label) !== null && _a !== void 0 ? _a : block.type), react_1.default.createElement(BlockControls_1.default, {
+    }, (_a = blocks_1.default[block.type].label) !== null && _a !== void 0 ? _a : block.type), react_1.default.createElement(BlockControls_1.default, {
       index: index,
       color: (_b = block.color) !== null && _b !== void 0 ? _b : 'currentColor',
-      setBlocks: setBlocks
+      setMail: setMail
     }), react_1.default.createElement("button", {
       className: "block__control block__toggle",
       type: "button",
@@ -29972,13 +30091,13 @@ function BlocksList(_ref) {
     }), react_1.default.createElement(BlockSettings_1.default, {
       index: index,
       block: block,
-      setBlocks: setBlocks
+      setMail: setMail
     }));
   }));
 }
 
 exports.default = BlocksList;
-},{"react":"../node_modules/react/index.js","../utils/blockTypes":"utils/blockTypes.ts","./BlockControls":"components/BlockControls.tsx","./BlockSettings":"components/BlockSettings.tsx"}],"functions/renderHtml.ts":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./BlockControls":"components/BlockControls.tsx","./BlockSettings":"components/BlockSettings.tsx","../blocks":"blocks/index.ts"}],"functions/renderHtml.ts":[function(require,module,exports) {
 "use strict";
 
 function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
@@ -30009,6 +30128,10 @@ function renderHtml(blocks, preHeader) {
         case 'text':
           html += "<".concat(block.tag, " style=\"color: ").concat(block.color, "; background-color: ").concat(block.backgroundColor, "; font-size: ").concat(block.fontSize, "px; line-height: ").concat(block.lineHeight, "px; text-align: ").concat(block.textAlign, "; padding: ").concat(block.paddingTop, "px ").concat(block.paddingRight, "px ").concat(block.paddingBottom, "px ").concat(block.paddingLeft, "px;margin: 0;\">").concat(block.text, "</").concat(block.tag, ">");
           break;
+
+        case 'btn':
+          html += "<div style=\"background-color: ".concat(block.backgroundColor, "; font-size: ").concat(block.fontSize, "px; line-height: ").concat(block.lineHeight, "px; text-align: ").concat(block.textAlign, "; padding: ").concat(block.paddingTop, "px ").concat(block.paddingRight, "px ").concat(block.paddingBottom, "px ").concat(block.paddingLeft, "px;margin: 0;\"><a href=\"").concat(block.href, "\" target=\"_blank\" style=\"color: ").concat(block.color, ";\">").concat(block.text, "</a></div>");
+          break;
       }
     }
   } catch (err) {
@@ -30025,7 +30148,7 @@ function renderHtml(blocks, preHeader) {
 }
 
 exports.default = renderHtml;
-},{}],"img/logo.svg":[function(require,module,exports) {
+},{}],"assets/img/logo.svg":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -30072,7 +30195,52 @@ function SvgLogo(props) {
 
 var _default = SvgLogo;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js"}],"index.tsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js"}],"functions/generateDefaultBlock.ts":[function(require,module,exports) {
+"use strict";
+
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var blocks_1 = __importDefault(require("../blocks"));
+
+function generateDefaultBlock(type) {
+  var block = {
+    type: type
+  };
+  var props = blocks_1.default[type].props;
+
+  var _iterator = _createForOfIteratorHelper(props),
+      _step;
+
+  try {
+    for (_iterator.s(); !(_step = _iterator.n()).done;) {
+      var prop = _step.value;
+      block[prop.name] = prop.default;
+    }
+  } catch (err) {
+    _iterator.e(err);
+  } finally {
+    _iterator.f();
+  }
+
+  return block;
+}
+
+exports.default = generateDefaultBlock;
+},{"../blocks":"blocks/index.ts"}],"index.tsx":[function(require,module,exports) {
 "use strict";
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
@@ -30137,35 +30305,37 @@ var react_dom_1 = require("react-dom");
 
 var BlocksList_1 = __importDefault(require("./components/BlocksList"));
 
-var blockTypes_1 = require("./utils/blockTypes");
-
 var renderHtml_1 = __importDefault(require("./functions/renderHtml"));
 
-var logo_svg_1 = __importDefault(require("./img/logo.svg"));
+var logo_svg_1 = __importDefault(require("./assets/img/logo.svg"));
+
+var blocks_1 = __importDefault(require("./blocks"));
+
+var generateDefaultBlock_1 = __importDefault(require("./functions/generateDefaultBlock"));
 
 function App() {
   var _a;
 
   var storagedState = window.localStorage.getItem('blocks');
 
-  var _ref = (0, react_1.useState)(storagedState ? JSON.parse(storagedState) : blockTypes_1.initialState),
+  var _ref = (0, react_1.useState)(storagedState ? JSON.parse(storagedState) : Object.keys(blocks_1.default).map(generateDefaultBlock_1.default)),
       _ref2 = _slicedToArray(_ref, 2),
-      blocks = _ref2[0],
-      setBlocks = _ref2[1];
+      mail = _ref2[0],
+      setMail = _ref2[1];
 
   var _ref3 = (0, react_1.useState)((_a = window.localStorage.getItem('preHeader')) !== null && _a !== void 0 ? _a : ""),
       _ref4 = _slicedToArray(_ref3, 2),
       preHeader = _ref4[0],
       setPreHeader = _ref4[1];
 
-  var stringified = JSON.stringify(blocks);
+  var stringified = JSON.stringify(mail);
   var exportJson = new Blob([stringified], {
     type: 'text/json'
   });
-  var renderedHtml = (0, renderHtml_1.default)(blocks, preHeader);
+  var renderedHtml = (0, renderHtml_1.default)(mail, preHeader);
   (0, react_1.useEffect)(function () {
     window.localStorage.setItem('blocks', stringified);
-  }, [blocks]);
+  }, [mail]);
   (0, react_1.useEffect)(function () {
     window.localStorage.setItem('preHeader', preHeader);
   }, [preHeader]);
@@ -30183,14 +30353,14 @@ function App() {
     "aria-label": "\u0421\u043A\u0440\u044B\u0442\u0430\u044F \u043F\u0435\u0440\u0432\u0430\u044F \u0441\u0442\u0440\u043E\u0447\u043A\u0430 \u043F\u0438\u0441\u044C\u043C\u0430",
     value: preHeader
   }), react_1.default.createElement(BlocksList_1.default, {
-    blocks: blocks,
-    setBlocks: setBlocks
+    mail: mail,
+    setMail: setMail
   }), react_1.default.createElement("form", {
     className: "constructor__add",
     onSubmit: function onSubmit(e) {
       e.preventDefault();
-      setBlocks(function (prevState) {
-        return prevState.concat((0, blockTypes_1.generateDefaultBlock)(e.target.blockType.value));
+      setMail(function (prevState) {
+        return prevState.concat((0, generateDefaultBlock_1.default)(e.target.blockType.value));
       });
     }
   }, react_1.default.createElement("label", {
@@ -30198,11 +30368,11 @@ function App() {
   }, "\u041D\u043E\u0432\u044B\u0439 \u0431\u043B\u043E\u043A:"), react_1.default.createElement("select", {
     className: "block__input",
     name: "blockType"
-  }, Object.keys(blockTypes_1.blockTypes).map(function (key, index) {
+  }, Object.keys(blocks_1.default).map(function (key, index) {
     return react_1.default.createElement("option", {
       value: key,
       key: index
-    }, blockTypes_1.blockTypes[key].label);
+    }, blocks_1.default[key].label);
   })), react_1.default.createElement("input", {
     className: "constructor__add_btn",
     type: "submit",
@@ -30234,7 +30404,7 @@ function App() {
         fileReader.readAsText(event.target.files[0], "UTF-8");
 
         fileReader.onload = function (e) {
-          setBlocks(function () {
+          setMail(function () {
             if (e.target && typeof e.target.result === 'string') {
               return JSON.parse(e.target.result);
             }
@@ -30263,7 +30433,7 @@ function App() {
     type: "reset",
     onClick: function onClick() {
       if (confirm('Это сотрет текущее письмо. Продолжить?')) {
-        setBlocks([]);
+        setMail([]);
         setPreHeader('');
       }
     }
@@ -30279,7 +30449,7 @@ function App() {
 }
 
 (0, react_dom_1.render)(react_1.default.createElement(react_1.default.StrictMode, null, react_1.default.createElement(App, null)), document.getElementById("constructor"));
-},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","./components/BlocksList":"components/BlocksList.tsx","./utils/blockTypes":"utils/blockTypes.ts","./functions/renderHtml":"functions/renderHtml.ts","./img/logo.svg":"img/logo.svg"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","./components/BlocksList":"components/BlocksList.tsx","./functions/renderHtml":"functions/renderHtml.ts","./assets/img/logo.svg":"assets/img/logo.svg","./blocks":"blocks/index.ts","./functions/generateDefaultBlock":"functions/generateDefaultBlock.ts"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -30307,7 +30477,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57575" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64732" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
