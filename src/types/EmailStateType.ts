@@ -1,8 +1,8 @@
-import { blockType } from "../utils/blockTypes";
+import {blockName} from "../blocks";
 
 export type EmailBlockType = {
-	type: blockType;
-	[prop: string]: string;
+  type: blockName;
+  [prop: string]: string;
 };
 
 export type EmailStateType = Array<EmailBlockType>;

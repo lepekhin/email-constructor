@@ -1,18 +1,18 @@
 import React, { FormEvent } from "react";
 import { EmailBlockType, EmailStateType } from "../types/EmailStateType";
-import { blockTypes } from "../utils/blockTypes";
+import blocks from "../blocks";
 
 type BlockSettingsProps = {
     block: EmailBlockType;
 	index: number;
-    setBlocks: React.Dispatch<React.SetStateAction<EmailStateType>>;
+    setMail: React.Dispatch<React.SetStateAction<EmailStateType>>;
 }
 
-export default function BlockSettings({block, index, setBlocks}: BlockSettingsProps) {    
+export default function BlockSettings({block, index, setMail}: BlockSettingsProps) {
     const inputChangeHandler = (event: FormEvent) => {
         const input = event.target as HTMLInputElement;
         const inputName = input.name;
-        setBlocks((prevState => {
+        setMail((prevState => {
             return prevState.map((newBlock, newIndex) => {
                 if (newIndex === index) {
                     newBlock[inputName] = input.value;
@@ -24,7 +24,7 @@ export default function BlockSettings({block, index, setBlocks}: BlockSettingsPr
 
 	return (
 		<form className="block__settings">
-            {blockTypes[block.type].props.map((prop, propIndex) => {
+            {blocks[block.type].props.map((prop, propIndex) => {
                 let elementProps: {
                     min?: number;
                     max?: number;

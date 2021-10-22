@@ -4,19 +4,19 @@ import { EmailStateType } from "../types/EmailStateType";
 type BlockControlsProps = {
 	index: number;
 	color: string;
-    setBlocks: React.Dispatch<React.SetStateAction<EmailStateType>>;
+    setMail: React.Dispatch<React.SetStateAction<EmailStateType>>;
 }
 
-export default function BlockControls({index, setBlocks}: BlockControlsProps) {
+export default function BlockControls({index, setMail}: BlockControlsProps) {
     const duplicateClickHandler: React.MouseEventHandler<HTMLButtonElement> = () => {
-        setBlocks((prevState) => {
+        setMail((prevState) => {
             return prevState.concat(Object.assign({}, prevState[index]));
         });
     };
 
     const deleteClickHandler: React.MouseEventHandler<HTMLButtonElement> = () => {
         if (confirm('Удалить этот блок?')) {
-            setBlocks((prevState => {
+            setMail((prevState => {
                 return prevState.filter((block, blockIndex) => {
                     return blockIndex !== index;
                 });
@@ -25,7 +25,7 @@ export default function BlockControls({index, setBlocks}: BlockControlsProps) {
     };
 
     const upClickHandler: React.MouseEventHandler<HTMLButtonElement> = () => {
-        setBlocks((prevState => {
+        setMail((prevState => {
             return prevState.map((newBlock, newIndex) => {
                 if (newIndex === index - 1) {
                     newBlock = prevState[index];
@@ -38,7 +38,7 @@ export default function BlockControls({index, setBlocks}: BlockControlsProps) {
     };
 
     const downClickHandler: React.MouseEventHandler<HTMLButtonElement> = () => {
-        setBlocks((prevState => {
+        setMail((prevState => {
             return prevState.map((newBlock, newIndex) => {
                 if (newIndex === index && index !== prevState.length - 1) {
                     newBlock = prevState[index + 1];

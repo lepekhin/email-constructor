@@ -1,14 +1,14 @@
 @font-face {
     font-family: "Apoc";
-    src: url("./fonts/Apoc-Regular-Web.woff2") format("woff2"),
-         url("./fonts/Apoc-Regular-Web.woff") format("woff");
+    src: url("assets/fonts/Apoc-Regular-Web.woff2") format("woff2"),
+         url("assets/fonts/Apoc-Regular-Web.woff") format("woff");
     font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
 @font-face {
     font-family: "TT Common";
-    src: url("./fonts/TypeType - TT Commons Pro Expanded DemiBold.ttf") format("ttf");
+    src: url("assets/fonts/TypeType - TT Commons Pro Expanded DemiBold.ttf") format("ttf");
     font-weight: 500;
     font-style: normal;
     font-display: swap;
@@ -138,7 +138,6 @@ body {
 	padding: .5em;
 	margin: .25em;
 	flex-grow: 1;
-	font-weight: bold;
 	border-radius: .2em;
 }
 .block__control {

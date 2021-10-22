@@ -22,6 +22,9 @@ export default function renderHtml(blocks: EmailStateType, preHeader: string) {
 			case 'text':
 				html += `<${block.tag} style="color: ${block.color}; background-color: ${block.backgroundColor}; font-size: ${block.fontSize}px; line-height: ${block.lineHeight}px; text-align: ${block.textAlign}; padding: ${block.paddingTop}px ${block.paddingRight}px ${block.paddingBottom}px ${block.paddingLeft}px;margin: 0;">${block.text}</${block.tag}>`;
 				break;
+			case 'btn':
+				html += `<div style="background-color: ${block.backgroundColor}; font-size: ${block.fontSize}px; line-height: ${block.lineHeight}px; text-align: ${block.textAlign}; padding: ${block.paddingTop}px ${block.paddingRight}px ${block.paddingBottom}px ${block.paddingLeft}px;margin: 0;"><a href="${block.href}" target="_blank" style="color: ${block.color};">${block.text}</a></div>`;
+				break;
 		}
 	}
 

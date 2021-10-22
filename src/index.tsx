@@ -2,21 +2,22 @@ import React, { useEffect, useState } from "react";
 import { render } from "react-dom";
 import BlocksList from "./components/BlocksList";
 import { EmailStateType } from "./types/EmailStateType";
-import { blockType, blockTypes, generateDefaultBlock, initialState } from "./utils/blockTypes";
 import renderHtml from "./functions/renderHtml";
-import Logo from './img/logo.svg'
+import Logo from './assets/img/logo.svg'
+import blocks, {blockName} from "./blocks";
+import generateDefaultBlock from "./functions/generateDefaultBlock";
 
 function App() {
 	let storagedState = window.localStorage.getItem('blocks');
-	const [blocks, setBlocks] = useState(storagedState ? JSON.parse(storagedState) as EmailStateType : initialState);
+	const [mail, setMail] = useState(storagedState ? JSON.parse(storagedState) as EmailStateType : (Object.keys(blocks) as Array<blockName>).map(generateDefaultBlock));
 	const [preHeader, setPreHeader] = useState(window.localStorage.getItem('preHeader') ?? "");
-	const stringified = JSON.stringify(blocks);
+	const stringified = JSON.stringify(mail);
 	const exportJson = new Blob([stringified], { type: 'text/json' });
-	const renderedHtml = renderHtml(blocks, preHeader);
+	const renderedHtml = renderHtml(mail, preHeader);
 
 	useEffect(() => {
 		window.localStorage.setItem('blocks', stringified);
-	}, [blocks]);
+	}, [mail]);
 
 	useEffect(() => {
 		window.localStorage.setItem('preHeader', preHeader);
@@ -29,18 +30,18 @@ function App() {
 				<input className="block__input block__input--fluid" name="preHeader" onChange={(e) => {
 					setPreHeader(e.target.value);
 				}} placeholder="Скрытая первая строчка письма" aria-label="Скрытая первая строчка письма" value={preHeader} />
-				<BlocksList blocks={blocks} setBlocks={setBlocks} />
+				<BlocksList mail={mail} setMail={setMail} />
 
 				<form className="constructor__add" onSubmit={(e) => {
 					e.preventDefault();
-					setBlocks((prevState => {
+					setMail((prevState => {
 						return prevState.concat(generateDefaultBlock((e.target as HTMLFormElement).blockType.value));
 					}));
 				}}>
 					<label htmlFor="blockType">Новый блок:</label>
 					<select className="block__input" name="blockType">
-						{Object.keys(blockTypes).map((key, index) => {
-							return <option value={key} key={index}>{blockTypes[key as blockType].label}</option>
+						{Object.keys(blocks).map((key, index) => {
+							return <option value={key} key={index}>{blocks[key as blockName].label}</option>
 						})}
 					</select>
 					<input className="constructor__add_btn" type="submit" value="Добавить" />
@@ -58,7 +59,7 @@ function App() {
 							const fileReader = new FileReader();
 							fileReader.readAsText(event.target.files[0], "UTF-8");
 							fileReader.onload = e => {
-								setBlocks(() => {
+								setMail(() => {
 									if (e.target && typeof e.target.result === 'string') {
 										return JSON.parse(e.target.result) as EmailStateType;
 									}
@@ -77,7 +78,7 @@ function App() {
 					}}>💣 Сбросить всё</a>
 					<button className="constructor__control" type="reset" onClick={() => {
 						if (confirm('Это сотрет текущее письмо. Продолжить?')) {
-							setBlocks([]);
+							setMail([]);
 							setPreHeader('');
 						}
 					}}>🗑 Удалить всё</button><br/>
