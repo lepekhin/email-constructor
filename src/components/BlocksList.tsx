@@ -10,8 +10,6 @@ type BlocksListProps = {
 }
 
 export default function BlocksList({mail, setMail}: BlocksListProps) {
-	console.log(mail);
-
 	return (
 		<ol className="constructor__blocks">
 			{mail.map((block, index) => {

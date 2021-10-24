@@ -82,10 +82,10 @@ function App() {
 							setPreHeader('');
 						}
 					}}>🗑 Удалить всё</button><br/>
-					<a className="constructor__logo" href="https://lepekhin.studio/?utm_referrer=email.lepekhin.studio" target="_blank" aria-label="Студия Евгения Лепёхина"><Logo/></a>
+					<a className="constructor__logo" href="https://lepekhin.studio/?utm_referrer=email.lepekhin.studio" target="_blank" rel="noopener" aria-label="Студия Евгения Лепёхина"><Logo/></a>
 				</div>
 			</aside>
-			<iframe className="constructor__preview" src={renderedHtml} />
+			<iframe className="constructor__preview" title="Предпросмотр письма" src={renderedHtml} />
 		</>
 	);
 }
