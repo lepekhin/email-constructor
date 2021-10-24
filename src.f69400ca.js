@@ -30059,7 +30059,6 @@ var blocks_1 = __importDefault(require("../blocks"));
 function BlocksList(_ref) {
   var mail = _ref.mail,
       setMail = _ref.setMail;
-  console.log(mail);
   return react_1.default.createElement("ol", {
     className: "constructor__blocks"
   }, mail.map(function (block, index) {
@@ -30441,9 +30440,11 @@ function App() {
     className: "constructor__logo",
     href: "https://lepekhin.studio/?utm_referrer=email.lepekhin.studio",
     target: "_blank",
+    rel: "noopener",
     "aria-label": "\u0421\u0442\u0443\u0434\u0438\u044F \u0415\u0432\u0433\u0435\u043D\u0438\u044F \u041B\u0435\u043F\u0451\u0445\u0438\u043D\u0430"
   }, react_1.default.createElement(logo_svg_1.default, null)))), react_1.default.createElement("iframe", {
     className: "constructor__preview",
+    title: "\u041F\u0440\u0435\u0434\u043F\u0440\u043E\u0441\u043C\u043E\u0442\u0440 \u043F\u0438\u0441\u044C\u043C\u0430",
     src: renderedHtml
   }));
 }
@@ -30477,7 +30478,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64732" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56649" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

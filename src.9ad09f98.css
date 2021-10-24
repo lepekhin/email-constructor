@@ -6,13 +6,6 @@
     font-style: normal;
     font-display: swap;
 }
-@font-face {
-    font-family: "TT Common";
-    src: url("/TypeType - TT Commons Pro Expanded DemiBold.369ea934.ttf") format("ttf");
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
-}
 :root {
 	color-scheme: light;
 }
@@ -49,14 +42,14 @@ body {
 	column-gap: 6em;
 }
 .main__title {
-	font-family: 'TT Common', system-ui, sans-serif;
+	font-family: system-ui, sans-serif;
 	font-weight: 500;
 	flex-basis: 100%;
 	margin-bottom: 0;
 	line-height: 1.2;
 }
 .main__contributors_heading {
-	font-family: 'TT Common', system-ui, sans-serif;
+	font-family: system-ui, sans-serif;
 	font-weight: 500;
 	flex-basis: 100%;
 	margin: 0;
@@ -65,6 +58,7 @@ body {
 	flex-basis: 18em;
 	flex-grow: 1;
 	padding-bottom: 2em;
+	max-width: 52em;
 }
 .main__contributors {
 	padding-bottom: 3em;
@@ -141,13 +135,14 @@ body {
 	border-radius: .2em;
 }
 .block__control {
-	padding: .7em .35em;
+	padding: .25em;
 	margin: 0;
 	border: 0;
-	font: inherit;
+	font-size: 2em;
 	background: none;
 	cursor: pointer;
 	color: inherit;
+	line-height: 1;
 }
 .block__control svg {
 	width: 2em;
@@ -193,6 +188,7 @@ input, select, textarea, option, button {
 	border-bottom: 1px solid;
 	padding: .25em .5em;
 	margin: 0;
+	color: inherit;
 }
 textarea.block__input {
 	width: 100%;
@@ -207,6 +203,7 @@ select.block__input {
 	background-repeat: no-repeat;
 	background-position: 100% 40%;
 	background-size: 1.25em;
+	background-color: Canvas;
 }
 .block__input[type="file"] {
 	width: 240px;
