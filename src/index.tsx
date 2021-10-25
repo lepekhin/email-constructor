@@ -48,8 +48,8 @@ function App() {
 				</form>
 
 				<div className="constructor__controls">
-					<a className="constructor__control" href={renderedHtml} download={(new Date().toISOString()) + '.html'}>📩 Экспорт в .html</a>
-					<a className="constructor__control" href={URL.createObjectURL(exportJson)} download={(new Date().toISOString()) + '.json'}>📥 Сохранить шаблон</a>
+					<a className="constructor__control" href={renderedHtml} download={(new Date().toISOString()) + '.html'} onClick={() => {ym(51264703,'reachGoal','email2html');}}>📩 Экспорт в .html</a>
+					<a className="constructor__control" href={URL.createObjectURL(exportJson)} download={(new Date().toISOString()) + '.json'} onClick={() => {ym(51264703,'reachGoal','email2json');}}>📥 Сохранить шаблон</a>
 					<label className="constructor__control">📤 Загрузить шаблон<input className="visually-hidden" type="file" accept="application/json" onClick={(event) => {
 						if (!confirm('Это сотрет текущее письмо. Продолжить?')) {
 							event.preventDefault();
